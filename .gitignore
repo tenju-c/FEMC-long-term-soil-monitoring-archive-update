@@ -3,3 +3,7 @@
 *.Rproj.user
 Input Data/
 Output data/
+.RData
+.Rhistory
+For monday 3:23.R
+dataset 2.R
