@@ -1,5 +1,5 @@
 #####Forward------------------------------------------------------------------------------------
-#Project: Soils
+#Project: FEMC Long-Term Soil Monitoring Archive Update
 #Task: Make tblLabMethods insert
 #Author: Tenju Cuddihy
 #Date: 3/25/2026
@@ -39,8 +39,8 @@ lab_methods <- tibble(
     "CEC_nh4",
     "pH_salt",
     "pH_water",
-    "Hg",
-    "Hg",
+    "Hg_NRCS",
+    "Hg_USFS",
     "Ca_exch / Mg_exch / K_exch / Na_exch / Al_exch / Fe_exch / Mn_exch"
   ),
   
