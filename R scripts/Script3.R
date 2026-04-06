@@ -15,7 +15,7 @@ pacman::p_load(dplyr, readxl, readr)
 
 ###Import dataframes------------------------------------------------------------------------------------
 schedule <- read_excel(paste0(base, "TblSamplingSchedule2017-2022.xlsx"), sheet = "2017-2022")
-existing  <- read.csv(paste0(base, "tblSamplingSchedule(in).csv"))
+existing  <- read.csv(paste0(base, "tblSamplingSchedule.csv"))
 
 ###Confirm columns match DB schema------------------------------------------------------------------------------------
 expected_cols <- c("fkSiteID", "fkPlotID", "fkQuadrantID", "fldSampleYear", "fldNotes")
