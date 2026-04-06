@@ -4,6 +4,10 @@
 #Author: Tenju Cuddihy
 #Date: 3/25/2026
 
+
+###File Path------------------------------------------------------------------------------------
+project <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/"
+
 ###Configuration -----------------------------------------------------------
 
 n_scripts <- 7  # to be updated
@@ -13,7 +17,7 @@ n_scripts <- 7  # to be updated
 
 for (i in 1:n_scripts) {
   
-  script_name <- paste0("R scripts/Script", i, ".R")
+  script_name <- paste0(project, "R scripts/Script", i, ".R")
   message("Running ", script_name, " ...")
   
   source(script_name)
