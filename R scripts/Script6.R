@@ -5,6 +5,10 @@
 #Date: 3/25/2026
 
 
+###File Paths------------------------------------------------------------------------------------
+base <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Data/"
+out  <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Output Data/"
+
 ###Load packages------------------------------------------------------------------------------------
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(dplyr, tibble)
@@ -66,6 +70,6 @@ lab_methods <- tibble(
 )
 
 ###Export as a CSV------------------------------------------------------------------------------------
-write.csv(lab_methods, "insert_tblLabMethods.csv", row.names = FALSE)
+write.csv(lab_methods, paste0(out, "insert_tblLabMethods.csv"), row.names = FALSE)
 
 

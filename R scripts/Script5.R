@@ -5,12 +5,16 @@
 #Date: 3/25/2026
 
 
+###File Paths------------------------------------------------------------------------------------
+base <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Data/"
+out  <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Output Data/"
+
 ###Load packages------------------------------------------------------------------------------------
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(dplyr, readxl, readr)
 
 ###Read in excel file
-cd <- read_excel("New_Table_for_Citrate-Dithionite.xlsx", sheet = "Sheet1")
+cd <- read_excel(paste0(base, "New_Table_for_Citrate-Dithionite.xlsx"), sheet = "Sheet1")
 
 
 ###Check column names------------------------------------------------------------------------------------
@@ -40,7 +44,7 @@ cd <- cd %>%
 
 
 ###FK validation------------------------------------------------------------------------------------
-insert <- read.csv("insert_tblSoilSample.csv")
+insert <- read.csv(paste0(out, "insert_tblSoilSample.csv"))
 
 
 invalid_ids <- cd %>%
@@ -59,7 +63,8 @@ unique(cd$enuLab)
 nrow(cd)
 
 ###Export as a CSV------------------------------------------------------------------------------------
-write.csv(cd, "insert_tblSoilCitrateDithionite.csv", row.names = FALSE)
+write.csv(cd, paste0(out, "insert_tblSoilCitrateDithionite.csv"), row.names = FALSE)
+
 
 
 

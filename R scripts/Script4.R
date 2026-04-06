@@ -5,12 +5,16 @@
 #Date: 3/25/2026
 
 
+###File Paths------------------------------------------------------------------------------------
+base <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Data/"
+out  <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Output Data/"
+
 ###Load packages------------------------------------------------------------------------------------
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(dplyr, readxl, readr)
 
 ###read in excel file------------------------------------------------------------------------------------
-psize <- read_excel("New_Table_for_Particle_Size.xlsx", sheet = "for database")
+psize <- read_excel(paste0(base, "New_Table_for_Particle_Size.xlsx"), sheet = "for database")
 
 ###Make sure columns match DDL------------------------------------------------------------------------------------
 psize <- psize %>%
@@ -30,8 +34,8 @@ psize <- psize %>%
 
 ###Fk Validation------------------------------------------------------------------------------------
   #read in sources
-  existing <- read.csv("tblSoilSample.csv")
-  insert <- read.csv("insert_tblSoilSample.csv")
+  existing <- read.csv(paste0(base, "tblSoilSample(in).csv"))
+  insert <- read.csv(paste0(out, "insert_tblSoilSample.csv"))
   
   
   #Check where IDs exist
@@ -66,6 +70,6 @@ psize <- psize %>%
     )
 
   ###Export as a CSV------------------------------------------------------------------------------------
-  write.csv(psize_clean, "insert_tblSoilParticleSize.csv", row.names = FALSE)
+  write.csv(psize_clean, paste0(out, "insert_tblSoilParticleSize.csv"), row.names = FALSE)
 
 

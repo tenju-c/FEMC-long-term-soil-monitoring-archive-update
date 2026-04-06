@@ -5,13 +5,17 @@
 #Date: 3/24/2026
 
 
+###File Paths------------------------------------------------------------------------------------
+base <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Data/"
+out  <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Output Data/"
+
 ###Load in packages------------------------------------------------------------------------------------
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(dplyr, readxl, readr)
 
 ###Import dataframes------------------------------------------------------------------------------------
-soil2022 <- read_excel("tblSoilSample2022.xlsx", sheet = "for database")
-soilDB <- read.csv("tblSoilSample.csv")
+soil2022 <- read_excel(paste0(base, "tblSoilSample2022.xlsx"), sheet = "for database")
+soilDB <- read.csv(paste0(base, "tblSoilSample(in).csv"))
 
 ###Check data------------------------------------------------------------------------------------
   #Check range
@@ -57,6 +61,6 @@ soilDB <- read.csv("tblSoilSample.csv")
     )
 
 ###Export as a CSV------------------------------------------------------------------------------------
-write.csv(soil2022_clean, "insert_tblSoilSample.csv", row.names = FALSE)
+write.csv(soil2022_clean, paste0(out, "insert_tblSoilSample.csv"), row.names = FALSE)
 
 

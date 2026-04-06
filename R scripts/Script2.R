@@ -5,13 +5,17 @@
 #Date: 3/24/2026
 
 
+###File Paths------------------------------------------------------------------------------------
+base <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Data/"
+out  <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Output Data/"
+
 ###Load packages------------------------------------------------------------------------------------
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(dplyr, readxl, readr)
 
 ###Import dataframes------------------------------------------------------------------------------------
-chem2022 <- read_excel("TblCoreSoilChemistry2022_updated1-21-26_.xlsx", sheet = "final")
-soil_insert <- read.csv("insert_tblSoilSample.csv")
+chem2022 <- read_excel(paste0(base, "TblCoreSoilChemistry2022_updated1-21-26_.xlsx"), sheet = "final")
+soil_insert <- read.csv(paste0(out, "insert_tblSoilSample.csv"))
 
 ###Drop helper columns------------------------------------------------------------------------------------
 chem2022 <- chem2022 %>%
@@ -51,7 +55,6 @@ chem2022_clean <- chem2022 %>%
 
 
 ###Export as a CSV------------------------------------------------------------------------------------
-write.csv(chem2022_clean, "insert_tblCoreSoilChemistry.csv", row.names = FALSE)
-
+write.csv(chem2022_clean, paste0(out, "insert_tblCoreSoilChemistry.csv"), row.names = FALSE)   
 
 
