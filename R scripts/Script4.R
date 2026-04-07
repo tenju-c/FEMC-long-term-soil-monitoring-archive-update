@@ -14,7 +14,7 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(dplyr, readxl, readr)
 
 ###read in excel file------------------------------------------------------------------------------------
-psize <- read_excel(paste0(base, "New_Table_for_Particle_Size.xlsx"), sheet = "for database")
+psize <- read_excel(paste0(base, "New Table for Particle Size.xlsx"), sheet = "for database")
 
 ###Make sure columns match DDL------------------------------------------------------------------------------------
 psize <- psize %>%
@@ -34,7 +34,7 @@ psize <- psize %>%
 
 ###Fk Validation------------------------------------------------------------------------------------
   #read in sources
-  existing <- read.csv(paste0(base, "tblSoilSample(in).csv"))
+  existing <- read.csv(paste0(base, "tblSoilSample.csv"))
   insert <- read.csv(paste0(out, "insert_tblSoilSample.csv"))
   
   

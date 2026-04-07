@@ -14,7 +14,7 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(dplyr, readxl, readr)
 
 ###Import dataframes------------------------------------------------------------------------------------
-chem2022 <- read_excel(paste0(base, "TblCoreSoilChemistry2022_updated1-21-26_.xlsx"), sheet = "final")
+chem2022 <- read_excel(paste0(base, "TblCoreSoilChemistry2022(updated1-21-26).xlsx"), sheet = "final")
 soil_insert <- read.csv(paste0(out, "insert_tblSoilSample.csv"))
 
 ###Drop helper columns------------------------------------------------------------------------------------

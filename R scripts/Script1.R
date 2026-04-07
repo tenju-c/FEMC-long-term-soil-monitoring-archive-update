@@ -15,7 +15,7 @@ pacman::p_load(dplyr, readxl, readr)
 
 ###Import dataframes------------------------------------------------------------------------------------
 soil2022 <- read_excel(paste0(base, "tblSoilSample2022.xlsx"), sheet = "for database")
-soilDB <- read.csv(paste0(base, "tblSoilSample(in).csv"))
+soilDB <- read.csv(paste0(base, "tblSoilSample.csv"))
 
 ###Check data------------------------------------------------------------------------------------
   #Check range

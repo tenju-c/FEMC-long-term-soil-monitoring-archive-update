@@ -14,7 +14,7 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(dplyr, readxl, readr)
 
 ###Read in excel file
-cd <- read_excel(paste0(base, "New_Table_for_Citrate-Dithionite.xlsx"), sheet = "Sheet1")
+cd <- read_excel(paste0(base, "New Table for Citrate-Dithionite.xlsx"), sheet = "Sheet1")
 
 
 ###Check column names------------------------------------------------------------------------------------
