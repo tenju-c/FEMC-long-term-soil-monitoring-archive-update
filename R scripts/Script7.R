@@ -4,13 +4,19 @@
 #Author: Tenju Cuddihy
 #Date: 3/25/2026
 
+
+###File Paths------------------------------------------------------------------------------------
+base <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Data/"
+out  <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Output Data/"
+
 ###Load packages---------------------------------------------------
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(dplyr, readxl, readr)
 
 
 ###Read in soil sample dataframe-------------------------------------
-soil <- read.csv("tblSoilSample.csv")
+soil <- read.csv(paste0(base, "tblSoilSample.csv"))
+
 
 ###Define affected IDs-----------------------------------------------
 oa_ids <- c(1756, 1759, 1762, 1765, 1768, 1772, 1774, 1776, 1779, 1782)
@@ -46,6 +52,6 @@ fixes <- subset_rows %>%
 fixes
 
 ###Export review file as a CSV---------------------------------------
-write.csv(fixes, "fix_tblSoilSample_FH_2017.csv", row.names = FALSE)
+write.csv(fixes, paste0(out, "fix_tblSoilSample_FH_2017.csv"), row.names = FALSE)
 
 

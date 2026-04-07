@@ -43,6 +43,16 @@ soilDB <- read.csv(paste0(base, "tblSoilSample(in).csv"))
 ###Manipulate dataframe------------------------------------------------------------------------------------   
   #Make sure to set fldCollector to NA
   soil2022$fldCollector <- NA
+    
+  #Add horizon column
+    extract_horizon <- function(bagid, sample_type) {
+      if (sample_type != "D") return(NA)
+      parts <- strsplit(bagid, "-")[[1]]
+      if (length(parts) < 5) return(NA)
+      paste(parts[5:length(parts)], collapse = "-")
+    }
+    
+    soil2022$Horizon <- mapply(extract_horizon, soil2022$fldBagID, soil2022$enuSampleType)
   
   #Make sure columns are in the correct order
   soil2022_clean <- soil2022 %>%
@@ -57,7 +67,8 @@ soilDB <- read.csv(paste0(base, "tblSoilSample(in).csv"))
       fldBagID,
       fldNRCSLabID,
       fldUSFSLabID,
-      fldCollector
+      fldCollector, 
+      Horizon
     )
 
 ###Export as a CSV------------------------------------------------------------------------------------
