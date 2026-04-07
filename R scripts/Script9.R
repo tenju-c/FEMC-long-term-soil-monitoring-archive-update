@@ -13,7 +13,7 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(dplyr, readxl, stringr)
 
 ###Read in dataframes--------------------------------------------------------
-visits <- read_excel(paste0(base, "._TblSiteVisit-revised2026.xlsx"))
+visits <- read_excel(paste0(base, "TblSiteVisit-revised2026.xlsx"))
 
 ###Check column names--------------------------------------------------------
 names(visits)

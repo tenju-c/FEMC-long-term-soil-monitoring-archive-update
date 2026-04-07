@@ -45,15 +45,16 @@ soilDB <- read.csv(paste0(base, "tblSoilSample.csv"))
   soil2022$fldCollector <- NA
     
   #Add horizon column
-    extract_horizon <- function(bagid, sample_type) {
-      if (sample_type != "D") return(NA)
-      parts <- strsplit(bagid, "-")[[1]]
-      if (length(parts) < 5) return(NA)
+    extract_horizon <- function(bagid) {
+      if (is.na(bagid)) return(NA)
+      parts <- unlist(strsplit(as.character(bagid), "-"))
+      if (length(parts) <= 4) return(NA)  # nothing after 4th dash
       paste(parts[5:length(parts)], collapse = "-")
     }
     
-    soil2022$Horizon <- mapply(extract_horizon, soil2022$fldBagID, soil2022$enuSampleType)
-  
+    # Apply to all rows
+    soil2022$Horizon <- sapply(soil2022$fldBagID, extract_horizon)
+    
   #Make sure columns are in the correct order
   soil2022_clean <- soil2022 %>%
     select(
