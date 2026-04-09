@@ -10,7 +10,7 @@ project <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-u
 
 ###Configuration -----------------------------------------------------------
 
-n_scripts <- 12  # to be updated
+n_scripts <- 13  # to be updated
 
 
 ###Run Scripts -------------------------------------------------------------

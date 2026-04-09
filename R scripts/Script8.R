@@ -4,7 +4,7 @@
 #Author: Tenju Cuddihy
 #Date: 3/25/2026
 
-###File Paths------------------------------------------------------------------------------------
+###File Paths (Paths may need to be updated on other machines)------------------------------------------------------------------------------------
 base <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Data/"
 out  <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Output Data/"
 
@@ -14,7 +14,7 @@ pacman::p_load(dplyr, readxl, readr)
 
 ###Read in dataframes--------------------------------------------------------
   chem <- read.csv(paste0(base, "tblCoreSoilChemistry.csv"))
-  soil <- read.csv(paste0(base, "tblSoilSample.csv"))
+  soil <- read_excel(paste0(base, "tblSoilSample.xlsx"), sheet = "final")
   
 
 ###Join dataframes for year data--------------------------------------------------------

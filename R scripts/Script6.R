@@ -5,7 +5,7 @@
 #Date: 3/25/2026
 
 
-###File Paths------------------------------------------------------------------------------------
+###File Paths (Paths may need to be updated on other machines)------------------------------------------------------------------------------------
 base <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Data/"
 out  <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Output Data/"
 

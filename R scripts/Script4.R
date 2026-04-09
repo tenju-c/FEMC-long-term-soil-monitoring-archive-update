@@ -5,7 +5,7 @@
 #Date: 3/25/2026
 
 
-###File Paths------------------------------------------------------------------------------------
+###File Paths (Paths may need to be updated on other machines)------------------------------------------------------------------------------------
 base <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Data/"
 out  <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Output Data/"
 
@@ -34,7 +34,7 @@ psize <- psize %>%
 
 ###Fk Validation------------------------------------------------------------------------------------
   #read in sources
-  existing <- read.csv(paste0(base, "tblSoilSample.csv"))
+  existing <- read_excel(paste0(base, "tblSoilSample.xlsx"), sheet = "final")
   insert <- read.csv(paste0(out, "insert_tblSoilSample.csv"))
   
   

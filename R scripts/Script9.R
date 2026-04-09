@@ -4,7 +4,7 @@
 #Author: Tenju Cuddihy
 #Date: 4/6/2026
 
-###File Paths------------------------------------------------------------------------------------
+###File Paths (Paths may need to be updated on other machines)------------------------------------------------------------------------------------
 base <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Data/"
 out  <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Output Data/"
 
@@ -74,6 +74,5 @@ visits_final <- visits_2022
 ###Export as csv--------------------------------------------------------
 write.csv(visits_final, paste0(out, "insert_tblSiteVisit.csv"), row.names = FALSE)
 
-write.csv(visits_final,"insert_tblSiteVisit.csv", row.names = FALSE)
 
 
