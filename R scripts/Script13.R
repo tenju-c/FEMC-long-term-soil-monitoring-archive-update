@@ -7,18 +7,6 @@
 base <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Data/"
 out  <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Output Data/"
 
-###Load packages--------------------------------------------------------
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(dplyr, readxl)
-
-
-###Read in dataframe------------------------------------------------------------------------------------
-historicalSoil <- read_excel(paste0(base, "tblSoilSample.xlsx"), sheet = "final")
-
-### File Paths (Paths may need to be updated on other machines) -----------------------------
-base <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Data/"
-out  <- "J:/Projects/Sprint Projects/FEMC-long-term-soil-monitoring-archive-update/Output Data/"
-
 ### Load packages --------------------------------------------------------
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(dplyr, readxl, writexl)
