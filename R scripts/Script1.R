@@ -44,6 +44,9 @@ soilDB <- read_excel(paste0(base, "tblSoilSample.xlsx"), sheet = "final")
   #Clean historical tblSoilSample
   soilDB <- soilDB[, 1:(ncol(soilDB) - 3)]
     
+  #Clean 2022 tblSoilSample
+  soil2022 <- soil2022[, 1:(ncol(soil2022) - 1)]
+  
   #Make sure to set fldCollector to NA
   soil2022$fldCollector <- NA
     
@@ -56,11 +59,8 @@ soilDB <- read_excel(paste0(base, "tblSoilSample.xlsx"), sheet = "final")
     }
     
     # Apply to all D samples, leave H samples as N/A
-    soil2022$`National Soil Information System Pedon Horizon Identifier` <- ifelse(
-      soil2022$enuSampleType == "D",
-      sapply(soil2022$fldBagID, extract_horizon),
-      NA
-    )
+    soil2022$fldLayerType <- sapply(soil2022$fldBagID, extract_horizon)
+
   #Make sure columns are in the correct order
   soil2022_clean <- soil2022 %>%
     select(
@@ -77,11 +77,9 @@ soilDB <- read_excel(paste0(base, "tblSoilSample.xlsx"), sheet = "final")
       fldUSFSLabID,
       fldCollector,
       NRCSNASISPhiid,
-      `National Soil Information System Pedon Horizon Identifier`
+      fldLayerType
     )
 
 ###Export as a CSV------------------------------------------------------------------------------------
 write.csv(soil2022_clean, paste0(out, "insert_tblSoilSample.csv"), row.names = FALSE)
-  
-##make git work
 

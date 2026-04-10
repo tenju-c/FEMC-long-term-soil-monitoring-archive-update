@@ -16,7 +16,7 @@ historicalSoil <- read_excel(paste0(base, "tblSoilSample.xlsx"), sheet = "final"
 
 ### Backfill horizon codes in historical soils dataframe ----------------
 # Clean historical tblSoil by removing last 3 columns
-historicalSoil <- historicalSoil[, 1:(ncol(historicalSoil) - 3)]
+historicalSoil <- historicalSoil[, 1:(ncol(historicalSoil) - 4)]
 
 # Populate horizon column using fldBagID for D samples
 extract_horizon <- function(bagid) {
@@ -26,12 +26,8 @@ extract_horizon <- function(bagid) {
   paste(parts[5:length(parts)], collapse = "-")
 }
 
-# Apply to all D samples, leave H samples as NA
-historicalSoil$`National Soil Information System Pedon Horizon Identifier` <- ifelse(
-  historicalSoil$enuSampleType == "D",
-  sapply(historicalSoil$fldBagID, extract_horizon),
-  NA
-)
+# Apply to all samples
+historicalSoil$fldLayerType <- sapply(historicalSoil$fldBagID, extract_horizon)
 
 ### Save back to Excel ----------------------------------------
 write_xlsx(historicalSoil, paste0(out, "tblSoilSample_updated.xlsx"))
